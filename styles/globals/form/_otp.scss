@@ -1,0 +1,38 @@
+.form--otp {
+  .form-group {
+    justify-content: center;
+    margin: 0px auto;
+    display: flex;
+
+    input {
+      border-bottom: solid 1px $primary-400  !important;
+      padding-bottom: 10px;
+      text-align: center;
+      margin-right: 4px;
+      margin-left: 4px;
+      font-weight: 500;
+      font-size: 40px;
+      outline: none;
+      border: none;
+      color: $black;
+      width: 48px;
+
+      &:focus,
+      &:active {
+        border-bottom: solid 1px $default  !important;
+      }
+
+      &.-valid {
+        border-bottom: solid 1px $black  !important;
+      }
+
+      &:first-child {
+        margin-left: 0px;
+      }
+
+      &:last-child {
+        margin-right: 0px;
+      }
+    }
+  }
+}

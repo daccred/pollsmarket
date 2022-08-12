@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'BR Firma';
+    src: url("BR-Firma-Regular.otf");
+    src: local("BR-Firma"), url("BR-Firma-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BR Firma';
+    src: url("BR-Firma-Italic.otf");
+    src: local("BR-Firma"), url("BR-Firma-Italic.otf") format("opentype");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'BR Firma';
+    src: url("BR-Firma-Medium.otf");
+    src: local("BR-Firma"), url("BR-Firma-Medium.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BR Firma';
+    src: url("BR-Firma-Medium-Italic.otf");
+    src: local("BR-Firma"), url("BR-Firma-Medium-Italic.otf") format("opentype");
+    font-weight: 700;
+    font-style: italic;
+}

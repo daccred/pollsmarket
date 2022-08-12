@@ -1,0 +1,12 @@
+.home-page {
+  @import "./home/introduction";
+  @import "./home/here-for-you";
+  @import "./home/good-news";
+  @import "./home/hero";
+
+  @media (min-width: 768px) {}
+
+  @media (min-width: 992px) {}
+
+  @media (min-width: 1200px) {}
+}

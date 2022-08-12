@@ -1,0 +1,85 @@
+// process
+.process {
+  background-color: var(--primary-950);
+  padding-bottom: 100px;
+  align-items: center;
+  position: relative;
+  padding-top: 76px;
+  overflow: hidden;
+  display: flex;
+
+  &__content {
+    margin-bottom: 114px;
+
+    &__conclusion {
+      color: var(--steel);
+      margin-top: 16px;
+      line-height: 1.5;
+      font-size: 18px;
+    }
+  }
+
+  &__background {
+    align-items: center;
+    position: absolute;
+    overflow-y: hidden;
+    height: 530px;
+    display: flex;
+    width: 70%;
+    right: 0;
+    bottom: 0;
+
+    img {
+      position: absolute;
+      height: 156%;
+      top: 0;
+    }
+  }
+
+  @media (min-width: 768px) {
+    & {
+      padding-bottom: 0px;
+      padding-top: 0px;
+      height: 545px;
+
+      &__content {
+        margin-bottom: 0px;
+
+        &__conclusion {
+          font-size: 20px;
+        }
+      }
+
+      &__background {
+        height: 120%;
+        width: 40%;
+        top: -10%;
+
+        img {
+          position: relative;
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  @media (min-width: 992px) {
+    & {
+      height: 720px;
+    }
+  }
+
+  @media (min-width: 1140px) {
+    & {
+      height: 1024px;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    & {
+      &__background {
+        height: 250%;
+      }
+    }
+  }
+}

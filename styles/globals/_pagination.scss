@@ -1,0 +1,36 @@
+.pagination {
+  .page-item {
+    text-align: center;
+    margin: 0px 4px;
+
+    .page-link {
+      background: $primary-600;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2px;
+      font-weight: bold;
+      font-size: 13px;
+      color: $slate;
+      display: flex;
+      height: 30px;
+      border: none;
+      padding: 0px;
+      width: 30px;
+    }
+
+    &.active {
+      .page-link {
+        background: $default;
+        color: #fff;
+      }
+    }
+
+    &:first-child {
+      margin-left: 0px;
+    }
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}

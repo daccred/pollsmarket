@@ -1,0 +1,19 @@
+.iconic-bg {
+  background-image: url("/icons/icons.png");
+  background-position: center;
+  mix-blend-mode: overlay;
+  background-size: 380px;
+  position: absolute;
+  opacity: 0.08;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  top: 0;
+}
+
+.shadow {
+  box-shadow: 0 8px 23px 0 rgba(6, 31, 60, 0.28);
+}

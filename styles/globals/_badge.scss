@@ -1,0 +1,38 @@
+.badge {
+  border-radius: 6px !important;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 2px 8px;
+  font-size: 11px;
+  height: 16px;
+
+  &--primary {
+    @extend .badge;
+    background-color: rgba(28, 138, 255, 0.1);
+    color: $default;
+  }
+
+  &--success {
+    @extend .badge;
+    background: #eff9f3;
+    color: $medium-green;
+  }
+
+  &--pending {
+    @extend .badge;
+    background: #fff7e3;
+    color: $squash;
+  }
+
+  &--error {
+    @extend .badge;
+    background: $very-light-pink;
+    color: $reddish;
+  }
+
+  &--processing {
+    @extend .badge;
+    background: #e5f7fb;
+    color: $turquoise-blue;
+  }
+}

@@ -1,0 +1,72 @@
+.form--material {
+
+  // for extend
+  .active-label {
+    transform: translate(0rem, -10px);
+    transition: ease all 0.25s;
+    font-size: 12px;
+  }
+
+  .form-group-container {
+    margin-bottom: 20px;
+
+    .error-message {
+      margin-left: 16px;
+    }
+  }
+
+  .form-group {
+    border: solid 1px $primary-300;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+    border-radius: 7px;
+    position: relative;
+    padding: 0px 16px;
+    display: flex;
+    height: 56px;
+
+    &:focus-within {
+      border: solid 1px $default;
+
+      label {
+        @extend .active-label;
+      }
+    }
+
+    label {
+      transition: ease all 0.25s;
+      transform: scale(1);
+      color: $bluey-grey;
+      position: absolute;
+      font-size: 16px;
+      cursor: text;
+      margin: 0px;
+      left: 0px;
+
+      &.active {
+        @extend .active-label;
+      }
+    }
+
+    .form-control {
+      height: calc(100% - 24px);
+      background: transparent;
+      margin-bottom: 3px;
+      box-shadow: none;
+      margin-top: auto;
+      font-size: 16px;
+      display: block;
+      outline: none;
+      padding: 0px;
+      border: none;
+      color: $black;
+      width: 100%;
+
+      &:focus,
+      &:active {
+        outline: none;
+      }
+    }
+  }
+}

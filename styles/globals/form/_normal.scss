@@ -1,0 +1,73 @@
+.form--normal {
+  .form-group-container {
+    position: relative;
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+
+    .form-group {
+      align-items: center;
+      margin-bottom: 0px;
+      display: flex;
+
+      .field {
+        align-items: flex-start;
+        flex-direction: column;
+
+        &.-with-start-adornment {
+          .form-control {
+            padding-left: 48px;
+          }
+        }
+
+        &.-with-end-adornment {
+          .form-control {
+            padding-right: 48px;
+          }
+        }
+
+        label {
+          margin-bottom: 8px;
+          font-size: 14px;
+          display: block;
+          color: $steel;
+        }
+
+        .form-control {
+          border: solid 1px $primary-700;
+          border-radius: 6px;
+          padding: 0px 16px;
+          font-size: 16px;
+          line-height: 1;
+          height: 48px;
+
+          &::placeholder {
+            color: $steel;
+          }
+
+          &:focus {
+            border: solid 1px $default;
+            box-shadow: none;
+            color: $black;
+          }
+        }
+      }
+
+      .start-adornment,
+      .end-adornment {
+        position: absolute;
+        top: 34px;
+      }
+
+      .start-adornment {
+        left: 16px;
+      }
+
+      .end-adornment {
+        right: 16px;
+      }
+    }
+  }
+}
