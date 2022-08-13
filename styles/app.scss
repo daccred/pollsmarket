@@ -1,6 +1,10 @@
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css");
 @import url("https://fonts.googleapis.com/css?family=BRFirma+Web:400,600,700|Work+Sans:400,500,600,700");
 
+// media queries partials
+@import "./globals/sm";
+
+
 @import "./globals/variables";
 @import "./globals/utils";
 @import "./globals/reset";
@@ -16,5 +20,3 @@
 
 
 @import "./components/index";
-
-@import "./pages/index";

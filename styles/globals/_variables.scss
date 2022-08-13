@@ -13,11 +13,6 @@ $primary-700: #0D141E;
 // variant of dark
 $black: #0D141E;
 
-// variant of dark grey
-$slate: #516276;
-$steel: #768493;
-$bluey-grey: #9ba5b1;
-
 // variant of yellow
 $default: #FCBB6B;
 $maize: #f6cf44;
@@ -69,9 +64,7 @@ $shadow: rgba(6, 31, 60, 0.12);
 $colors: (
   ) !default;
 $colors: map-merge(("black": $black,
-      "steel": $steel,
       "maize": $maize,
-      "slate": $slate,
       "beige": $beige,
       "melon": $melon,
       "mango": $mango,
@@ -95,7 +88,6 @@ $colors: map-merge(("black": $black,
       "primary-950": $primary-950,
       "clear-blue": $clear-blue,
       "dark-peach": $dark-peach,
-      "bluey-grey": $bluey-grey,
       "soft-green": $soft-green,
       "primary-400": $primary-400,
       "transparent": $transparent,
@@ -124,9 +116,7 @@ $colors: map-merge(("black": $black,
 
 :root {
   --black: #{$black};
-  --steel: #{$steel};
   --maize: #{$maize};
-  --slate: #{$slate};
   --beige: #{$beige};
   --melon: #{$melon};
   --mango: #{$mango};
@@ -150,7 +140,6 @@ $colors: map-merge(("black": $black,
   --primary-950: #{$primary-950};
   --clear-blue: #{$clear-blue};
   --dark-peach: #{$dark-peach};
-  --bluey-grey: #{$bluey-grey};
   --soft-green: #{$soft-green};
   --primary-400: #{$primary-400};
   --transparent: #{$transparent};

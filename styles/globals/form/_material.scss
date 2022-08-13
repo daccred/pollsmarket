@@ -2,7 +2,7 @@
 
   // for extend
   .active-label {
-    transform: translate(0rem, -10px);
+    transform: tranprimary-400(0rem, -10px);
     transition: ease all 0.25s;
     font-size: 12px;
   }
@@ -37,7 +37,7 @@
     label {
       transition: ease all 0.25s;
       transform: scale(1);
-      color: $bluey-grey;
+      color: $primary-600;
       position: absolute;
       font-size: 16px;
       cursor: text;
