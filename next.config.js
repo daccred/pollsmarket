@@ -30,4 +30,7 @@ module.exports = withPWA({
     runtimeCaching,
   },
   env,
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 });
