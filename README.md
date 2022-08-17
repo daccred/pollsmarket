@@ -29,7 +29,7 @@ This is the Progressive Web App (PWA) setup for the <b>#bbn-poll-experiment</b>.
    npm i && npm run dev
    ```
 
-## Env
+## Env setup
 
 The app has a `.env.example` file which is pre-populated with variables that will be needed in your local `.env` file. Credentials and keys that are private will be shared privately.
 
