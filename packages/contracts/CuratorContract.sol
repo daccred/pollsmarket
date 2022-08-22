@@ -7,13 +7,19 @@ pragma solidity ^0.8.14;
 * @dev Contract allowing users to list new event.
 */
 contract Curator {
+    /// @dev Curator address mappings.
     mapping(address => bool) private curators;
 
+    /// @dev Modifier to validate if an address is a valid curator.
     modifier isCurator() {
+        /// @dev Require address is mapped to true.
         require(curators[msg.sender] == true, "!Curator");
         _;
     }
 
+    /**
+    * @dev Lists a new event.
+    */
     function listNewEvent(
         string memory _eventName,
         uint256 _stakingAmount,
