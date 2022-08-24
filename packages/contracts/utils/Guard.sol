@@ -2,10 +2,8 @@
 pragma solidity ^0.8.14;
 
 /**
-* @title 
+* @title Guard Contract.
 * @author Anthony (fps) https://github.com/0xfps.
-* @dev 
-*
 */
 abstract contract Guard {
     bool locked;

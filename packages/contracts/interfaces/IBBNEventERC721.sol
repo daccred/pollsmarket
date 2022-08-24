@@ -10,14 +10,14 @@ pragma solidity ^0.8.14;
 */
 interface IBBNEventERC721 {
     /**
-    * @dev  Return the maxSupply.
+    * @dev  Return the maxSupply of the NFT Token.
     *
     * @return uint256 maxSupply.
     */
     function getMaxSuppply() external view returns(uint256);
 
     /**
-    * @dev  Return the currentSupply.
+    * @dev  Return the currentSupply of the NFT Token.
     *
     * @return uint256 currentSupply.
     */

@@ -13,13 +13,19 @@ import {Guard} from "./utils/Guard.sol";
 *       By architecture, it has a capped supply and a validity period, 
 *       and mints on this contract WILL not be greater than the 
 *       capped supply or done after the validity period.
-*       However, the capped supply is open to be changed or increased.
+*
+*       However, the capped supply is open to be changed or increased
+*       only by the curator.
 *
 *       Deploying a new event from the BBNRegistry deploys this contract
 *       and the Event contract, and sets the pool address in both to 
 *       to secure pool calls.
 */
-contract BBNEventERC721 is Guard, IBBNEventERC721, ERC721A {
+contract BBNEventERC721 is 
+Guard,
+IBBNEventERC721,
+ERC721A
+{
     /// @dev Pool address.
     address private pool;
     /// @dev Owner address.
@@ -103,7 +109,7 @@ contract BBNEventERC721 is Guard, IBBNEventERC721, ERC721A {
     * @dev  Increases the total supply of the Mintable NFTs on the
     *       contract by `_number`.
     *
-    * @param _ownerAddress  Address of Event owner 
+    * @param _ownerAddress  Address of Event owner,
     *                       [passed as msg.sender from calling contract].
     * @param _supply        Integer value to increase the supply by.
     */

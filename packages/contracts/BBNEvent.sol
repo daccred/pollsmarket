@@ -13,15 +13,20 @@ import {IBBNEventStructure} from "./interfaces/IBBNEventStructure.sol";
 *       Every event is limited to one NFT contract and one Stake
 *       question at a time, this question can have multiple outcomes
 *       but in the end, only one can be correct.
+*
 *       Events can be resolved by either the curator or the admin.
 *       Curator can resolve once, the admin can cancel or reresolve
 *       the event.
 *
-*       This contract is callable by ONLY the BBNRegistry.
+*       This contract is deployable by ONLY the BBNRegistry. Subsequent
+*       calls to staking are made by the BBNPoll. And Resolutions are called
+*       by the BBNResolution contract.
+*
+* @notice   For ease, predicted outcomes are passed as array indexes for easier
+*           resolution.
 */
 abstract contract BBNEvent is 
 IBBNEvent, 
-IBBNEventStructure, 
 BBNEventERC721 
 {
     /// @dev Event struct mapping.
@@ -52,6 +57,8 @@ BBNEventERC721
     event NewEvent(Event __event);
     /// @dev Emitted when a user stakes.
     event Stake(address _address, uint256 value);
+    /// @dev Emitted when event is resolved.
+    event Resolve(address _address);
 
     /**
     * @dev  Constructor on deploy from the Registry takes in
@@ -107,6 +114,16 @@ BBNEventERC721
     /**
     * @inheritdoc IBBNEvent
     */
+    function getEvent() public view returns(Event memory) {
+        /// @dev Move the event to memory.
+        Event memory _memEvent = _event;
+        /// @dev Return Event.
+        return _memEvent;
+    }
+
+    /**
+    * @inheritdoc IBBNEvent
+    */
     function stake(
         address _staker, 
         bytes32 _hash, 
@@ -144,6 +161,8 @@ BBNEventERC721
         _mint(_staker);
         /// @dev Push to map.
         stakes[_outcome].push(_staker);
+        /// @dev Emit {Stake} event.
+        emit Stake(_staker, msg.value);
     }
 
     /**
@@ -153,7 +172,7 @@ BBNEventERC721
     external
     {
         /// @dev Require the caller is the resolution contract.
-        require(msg.sender == resolutionContract,"!Resolver.");
+        require(msg.sender == resolutionContract, "!Resolver.");
         /// @dev Require that `_admin` is admin address.
         require(_admin == admin, "!Admin");
         /// @dev    Ensure that the _stake outcome is within the
@@ -170,6 +189,8 @@ BBNEventERC721
         calculateRewards(_outcome);
         /// @dev Set resolved to true.
         _event.resolved = true;
+        /// @dev Emit the {Resolve} event.
+        emit Resolve(_admin);
     }
     
     /**
@@ -179,7 +200,7 @@ BBNEventERC721
     external
     {
         /// @dev Require the caller is the resolution contract.
-        require(msg.sender == resolutionContract,"!Resolver.");
+        require(msg.sender == resolutionContract, "!Resolver.");
         /// @dev Require `_curator` is the curator.
         require(_curator == curator, "!Curator");
         /// @dev Require that the event is not yet resolved.
@@ -198,6 +219,8 @@ BBNEventERC721
         calculateRewards(_outcome);
         /// @dev Set resolved to true.
         _event.resolved = true;
+        /// @dev Emit the {Resolve} event.
+        emit Resolve(_curator);
     }
 
     /**
@@ -256,7 +279,7 @@ BBNEventERC721
     */
     function withdraw(address _staker) 
     external 
-    payable 
+    // payable 
     onlyPool
     noReentrance
     {
@@ -279,7 +302,7 @@ BBNEventERC721
     */
     function withdrawCurator(address _curator) 
     external 
-    payable 
+    // payable 
     onlyPool
     noReentrance
     {
@@ -302,8 +325,7 @@ BBNEventERC721
     */
     function getRewards(address _staker) 
     external 
-    view 
-    onlyPool
+    view
     returns(uint256)
     {
         /// @dev Require event has been resolved.
