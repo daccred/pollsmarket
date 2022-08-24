@@ -3,6 +3,7 @@ pragma solidity ^0.8.14;
 
 import {ERC721A} from "./utils/ERC721A.sol";
 import {IBBNEventERC721} from "./interfaces/IBBNEventERC721.sol";
+import {Guard} from "./utils/Guard.sol";
 
 /**
 * @title BBN Event NFT Contract.
@@ -18,7 +19,7 @@ import {IBBNEventERC721} from "./interfaces/IBBNEventERC721.sol";
 *       and the Event contract, and sets the pool address in both to 
 *       to secure pool calls.
 */
-contract BBNEventERC721 is IBBNEventERC721, ERC721A {
+contract BBNEventERC721 is Guard, IBBNEventERC721, ERC721A {
     /// @dev Pool address.
     address private pool;
     /// @dev Owner address.
@@ -82,11 +83,10 @@ contract BBNEventERC721 is IBBNEventERC721, ERC721A {
     * @notice   On every new mint, the maxSupply increases by 1
     *           and once the deadline or limit is reached, it 
     *           will not mint again.
-    * @notice   Callable by BBNPool contract.
     *
     * @param _to Address to which 1 token will be minted.
     */
-    function _mint(address _to) external onlyPool {
+    function _mint(address _to) internal noReentrance {
         /// @dev Require the expiry date has not passed.
         require(block.timestamp < expiryDate, "Expired");
         /// @dev Require that minting one extra token will not extend the maxSupply.
@@ -100,13 +100,15 @@ contract BBNEventERC721 is IBBNEventERC721, ERC721A {
     }
 
     /**
-    * @inheritdoc IBBNEventERC721
+    * @dev  Increases the total supply of the Mintable NFTs on the
+    *       contract by `_number`.
     *
-    * @notice Callable by BBNPool contract.
+    * @param _ownerAddress  Address of Event owner 
+    *                       [passed as msg.sender from calling contract].
+    * @param _supply        Integer value to increase the supply by.
     */
     function increaseMaxSupplyByNumber(address _ownerAddress, uint256 _supply) 
-    external 
-    onlyPool
+    internal
     {
         /// @dev Require _ownerAddress is the ownerAddress.
         require(_ownerAddress == ownerAddress, "!Event Owner");

@@ -22,15 +22,4 @@ interface IBBNEventERC721 {
     * @return uint256 currentSupply.
     */
     function getCurrentSupply() external view returns(uint256);
-
-    /**
-    * @dev  Increases the total supply of the Mintable NFTs on the
-    *       contract by `_number`.
-    *
-    * @param _ownerAddress  Address of Event owner 
-    *                       [passed as msg.sender from calling contract].
-    * @param _supply        Integer value to increase the supply by.
-    */
-    function increaseMaxSupplyByNumber(address _ownerAddress, uint256 _supply) 
-    external;
 }
