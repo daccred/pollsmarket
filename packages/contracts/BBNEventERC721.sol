@@ -35,7 +35,7 @@ ERC721A
     /// @dev Capped supply.
     uint256 private currentSupply;
     /// @dev Expiry date.
-    uint256 private expiryDate;
+    uint256 private _expiryDate_;
 
     /// @dev Modifier to secure contract calls from pool alone.
     /// @dev Pool is a future implementation.
@@ -65,7 +65,7 @@ ERC721A
         /// @dev Set Max supply.
         maxSupply = _maxSupply;
         /// @dev Set Expiry date.
-        expiryDate = _expiryDate;
+        _expiryDate_ = _expiryDate;
     }
 
     /**
@@ -94,7 +94,7 @@ ERC721A
     */
     function _mint(address _to) internal noReentrance {
         /// @dev Require the expiry date has not passed.
-        require(block.timestamp < expiryDate, "Expired");
+        require(block.timestamp < _expiryDate_, "Expired");
         /// @dev Require that minting one extra token will not extend the maxSupply.
         require((currentSupply + 1) <= maxSupply, "MaxSupply");
         /// @dev Increment the totalSupply by 1.

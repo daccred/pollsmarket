@@ -20,12 +20,15 @@ import {IBBNEventStructure} from "./interfaces/IBBNEventStructure.sol";
 *
 *       This contract is deployable by ONLY the BBNRegistry. Subsequent
 *       calls to staking are made by the BBNPoll. And Resolutions are called
-*       by the BBNResolution contract.
+*       by the BBNEventResolution contract.
 *
 * @notice   For ease, predicted outcomes are passed as array indexes for easier
 *           resolution.
+* @notice   This contract deploys the BBNEventERC721 contract and uses part of
+*           its [this contracts] constructor arguments for the constructors of
+*           the BBNEventERC721 contract.
 */
-abstract contract BBNEvent is 
+contract BBNEvent is 
 IBBNEvent, 
 BBNEventERC721 
 {
@@ -136,6 +139,10 @@ BBNEventERC721
     {
         /// @dev Require Staker is not curator.
         require(_staker != curator, "Staker == Curator");
+        /// @dev Push event to memory.
+        Event memory _memEvent = _event;
+        /// @dev Require Event has not expired.
+        require(block.timestamp < _memEvent.expiryDate, "Expired");
         /// @dev Require the amount sent is > than the minstake value.
         require(msg.value >= minStakeValue, "< Min Stake Value");
         /// @dev Ensure max has not been reached.
@@ -145,8 +152,6 @@ BBNEventERC721
         );
         /// @dev Require _staker is not a zero address.
         require(_staker != address(0), "0x0 Staker");
-        /// @dev Push event to memory.
-        Event memory _memEvent = _event;
         /// @dev Validate hash passed is event hash.
         require(_hash == _memEvent.hash, "!Event Hash");
         /// @dev Requie event has not been resolved.
@@ -175,6 +180,8 @@ BBNEventERC721
         require(msg.sender == resolutionContract, "!Resolver.");
         /// @dev Require that `_admin` is admin address.
         require(_admin == admin, "!Admin");
+        /// @dev Require Event has expired.
+        require(block.timestamp >= _event.expiryDate, "!Expired");
         /// @dev    Ensure that the _stake outcome is within the
         ///         outcome values.
         require(
@@ -203,6 +210,8 @@ BBNEventERC721
         require(msg.sender == resolutionContract, "!Resolver.");
         /// @dev Require `_curator` is the curator.
         require(_curator == curator, "!Curator");
+        /// @dev Require Event has expired.
+        require(block.timestamp >= _event.expiryDate, "!Expired");
         /// @dev Require that the event is not yet resolved.
         require(_event.resolved == false, "Resolved Already");
         /// @dev    Ensure that the _stake outcome is within the
@@ -233,14 +242,14 @@ BBNEventERC721
     * @param _outcome Outcome of event.
     */
     function calculateRewards(uint8 _outcome) private returns(bool) {
-        uint8 adminTax = 8;         // Changeable.
-        uint8 curatorTax = 5;       // Changeabe.
+        uint8 adminTax = 2;         // Changeable.
+        uint8 curatorTax = 1;       // Changeabe.
         uint256 totalFunds = address(this).balance;
 
-        /// @dev Admin takes 8%.
+        /// @dev Admin takes 2%.
         adminRewards = (adminTax * totalFunds) / 100;
 
-        /// @dev Curator takes 5%.
+        /// @dev Curator takes 1%.
         curatorRewards = (curatorTax * totalFunds) / 100;
 
         /// @dev Calculate for others.
@@ -283,6 +292,8 @@ BBNEventERC721
     onlyPool
     noReentrance
     {
+        /// @dev Require Event has expired.
+        require(block.timestamp >= _event.expiryDate, "!Expired");
         /// @dev Requie event has been resolved.
         require(_event.resolved, "Event !Resolved");
         /// @dev Require _staker is not a zero address.
@@ -306,6 +317,8 @@ BBNEventERC721
     onlyPool
     noReentrance
     {
+        /// @dev Require Event has expired.
+        require(block.timestamp >= _event.expiryDate, "!Expired");
         /// @dev Requie event has been resolved.
         require(_event.resolved, "Event !Resolved");
         /// @dev Require _curator is the curator.
