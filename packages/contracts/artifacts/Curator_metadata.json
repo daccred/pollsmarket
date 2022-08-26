@@ -1,0 +1,96 @@
+{
+	"compiler": {
+		"version": "0.8.16+commit.07a7930e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "_eventName",
+						"type": "string"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_stakingAmount",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_eventDeadline",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_resolutionTime",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_maximumTicketSupply",
+						"type": "uint256"
+					},
+					{
+						"internalType": "string[]",
+						"name": "_eventOutcomes",
+						"type": "string[]"
+					}
+				],
+				"name": "listNewEvent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"author": "Anthony (fps) https://github.com/0xfps.",
+			"details": "Contract allowing users to list new event.",
+			"kind": "dev",
+			"methods": {
+				"listNewEvent(string,uint256,uint256,uint256,uint256,string[])": {
+					"details": "Lists a new event."
+				}
+			},
+			"stateVariables": {
+				"curators": {
+					"details": "Curator address mappings."
+				}
+			},
+			"title": "Curator Contract.",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"CuratorContract.sol": "Curator"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"CuratorContract.sol": {
+			"keccak256": "0x4a056f40e0f8c69a5f555a367ea607d7aa814c59a885395cbfbd2adb708b68ad",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://0acfde76879577f116ab3d064b939458667136f2c64e2b4ac73a68f96316ec5f",
+				"dweb:/ipfs/QmeemgDsYy7JaxMz3aXXMzARgU4HBWvpYGqR1M9J9iVfQA"
+			]
+		}
+	},
+	"version": 1
+}
