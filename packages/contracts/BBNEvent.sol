@@ -28,10 +28,7 @@ import {IBBNEventStructure} from "./interfaces/IBBNEventStructure.sol";
 *           its [this contracts] constructor arguments for the constructors of
 *           the BBNEventERC721 contract.
 */
-contract BBNEvent is 
-IBBNEvent, 
-BBNEventERC721 
-{
+contract BBNEvent is IBBNEvent, BBNEventERC721 {
     /// @dev Event struct mapping.
     Event public _event;
     /// @dev Owner Address.
