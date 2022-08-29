@@ -1,11 +1,17 @@
-Proposed Steps.
+# BBN Polls Contracts
 
-- Deploy Registry.
-- Deploy Pool.
-- Deploy Resolution.
-- Set Pool and Resolution in registry.
-- Set or change ownership in registry
+### Proposed Steps.
 
-- Registry deploys event.
-- Pool interacts with events.
-- Resolver resolves events.
+- Deploy `BBNEventRegistry`.
+- Deploy `BBNPool`.
+- Deploy `BBNEventResolution`.
+
+- Set `BBNPool` address and `BBNEventResolution` address in `BBNEventRegistry`.
+
+
+- `BBNEventRegistry` allows curators to deploy a new `BBNEvent` and its child `BBNEventERC721`, setting the `BBNPool` address and `BBNEventResolution` address in the contract.
+- `BBNPool` interacts with every `BBNEvent`.
+
+- `BBNEventResolution` resolves events set at `BBNEvent`.
+
+---
