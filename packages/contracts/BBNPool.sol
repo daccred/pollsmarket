@@ -20,7 +20,7 @@ contract BBNPool is IBBNPool, Pausable {
         bytes32 _hash,
         uint8 _predictedOutcome
     ) 
-    external 
+    public 
     payable
     whenNotPaused
     {

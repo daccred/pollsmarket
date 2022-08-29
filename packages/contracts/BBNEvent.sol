@@ -271,7 +271,9 @@ contract BBNEvent is IBBNEvent, BBNEventERC721 {
     * @param _outcome           Outcome of event.
     * @param _individualRewards Reward for each staker.
     */
-    function distributeRewards(uint8 _outcome, uint256 _individualRewards) private {
+    function distributeRewards(uint8 _outcome, uint256 _individualRewards) 
+    private 
+    {
         address[] memory _rewardees = stakes[_outcome];
         
         /// @dev Loop through all addresses and then reward each.
