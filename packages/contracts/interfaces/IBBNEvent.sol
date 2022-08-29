@@ -18,6 +18,13 @@ interface IBBNEvent is IBBNEventStructure {
     function getEvent() external view returns(Event memory);
 
     /**
+    * @dev Returns the total funds staked on this event contract.
+    * 
+    * @return uint256 Total stakes.
+    */
+    function getTotalEventStakes() external view returns(uint256);
+
+    /**
     * @dev  Allows `_staker` to stake some amount of money that is
     *       GT the set `minStakeValue` deployed.
     *       This will mint a BBNEventERC721 token to `_staker`.

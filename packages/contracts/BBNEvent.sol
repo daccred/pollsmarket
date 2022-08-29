@@ -124,6 +124,19 @@ contract BBNEvent is IBBNEvent, BBNEventERC721 {
     /**
     * @inheritdoc IBBNEvent
     */
+    function getTotalEventStakes() 
+    external 
+    view 
+    onlyPool
+    returns(uint256)
+    {
+        /// @dev Return total funds held by this contract.
+        return address(this).balance;
+    }
+
+    /**
+    * @inheritdoc IBBNEvent
+    */
     function stake(
         address _staker, 
         bytes32 _hash, 

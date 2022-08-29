@@ -15,6 +15,34 @@ contract BBNPool is IBBNPool, Pausable {
     /**
     * @inheritdoc IBBNPool
     */
+    function getEventDataFromEvent(address _eventAddress) 
+    external 
+    view 
+    returns(Event memory)
+    {
+        /// @dev Require event address is not a 0 address.
+        require(_eventAddress != address(0), "0x0 Event");
+        /// @dev    Make call.
+        return IBBNEvent(_eventAddress).getEvent();
+    }
+
+    /**
+    * @inheritdoc IBBNPool
+    */
+    function getTotalStakesAtEvent(address _eventAddress) 
+    external 
+    view 
+    returns(uint256)
+    {
+        /// @dev Require event address is not a 0 address.
+        require(_eventAddress != address(0), "0x0 Event");
+        /// @dev    Make call.
+        return IBBNEvent(_eventAddress).getTotalEventStakes();
+    }
+
+    /**
+    * @inheritdoc IBBNPool
+    */
     function predictOutcome(
         address _eventAddress,
         bytes32 _hash,
