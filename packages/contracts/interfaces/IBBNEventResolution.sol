@@ -5,7 +5,7 @@ import {IBBNEventStructure} from "./IBBNEventStructure.sol";
 
 /**
 * @title BBN Event Resolution Contract Interface.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev Interface guiding the resolution of any event.
 */
 interface IBBNEventResolution is IBBNEventStructure {

@@ -3,7 +3,7 @@ pragma solidity ^0.8.14;
 
 /**
 * @title BBN Event NFT Contract Interface.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev  This interface controls the NFT contract deployed
 *       alongside any event listed by a curator.
 *       [Ref:: BBNEventERC721.sol]

@@ -7,7 +7,7 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
 * @title BBN Event Resolution Contract.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev  Contract for the resolution of any BBN Event deployed 
 *       to any address.
 *

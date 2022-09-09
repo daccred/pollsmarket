@@ -7,7 +7,7 @@ import {Guard} from "./utils/Guard.sol";
 
 /**
 * @title BBN Event NFT Contract.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev  This NFT contract is deployed whenever a valid curator
 *       lists a new event.
 *       By architecture, it has a capped supply and a validity period, 

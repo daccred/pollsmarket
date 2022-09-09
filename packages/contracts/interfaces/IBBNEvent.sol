@@ -5,7 +5,7 @@ import {IBBNEventStructure} from "./IBBNEventStructure.sol";
 
 /**
 * @title BBN Event Contract Interface.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev  This interface controls the functionalities
 *       of each BBNEvent contract.
 */

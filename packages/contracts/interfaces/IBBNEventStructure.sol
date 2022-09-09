@@ -3,7 +3,7 @@ pragma solidity ^0.8.14;
 
 /**
 * @title Event Structure Interface.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev  This is the structure of any BBN Event, to
 *       be used by the BBNEvent and the BBNRegistry contracts.
 */

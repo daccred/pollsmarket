@@ -5,7 +5,7 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
 * @title Pausable Contract.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev  This contract seeks to grant the inheriting
 *       contract the ability to pause actions done
 *       on the contract.

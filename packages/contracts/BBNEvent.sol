@@ -7,7 +7,7 @@ import {IBBNEventStructure} from "./interfaces/IBBNEventStructure.sol";
 
 /**
 * @title BBN Event Contract.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev  This NFT contract is deployed whenever a valid curator
 *       lists a new event.
 *       Every event is limited to one NFT contract and one Stake
