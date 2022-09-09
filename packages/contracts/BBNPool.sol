@@ -7,7 +7,7 @@ import {Pausable} from "./utils/Pausable.sol";
 
 /**
 * @title BBN Event Pool Contract.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev  Pool from where any event staking can be interacted with.
 *       This pool can be paused by the owner [admin].
 */

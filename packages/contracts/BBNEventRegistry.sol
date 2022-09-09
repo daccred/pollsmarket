@@ -11,7 +11,7 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 
 /**
 * @title BBN Event Registry Contract.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev  Registry contract, this contract deploys the Event.
 *       This is a standalone contract.
 *       Pool and resolutionContract is set first by owner.

@@ -7,7 +7,7 @@ import {IBBNEventStructure} from "./interfaces/IBBNEventStructure.sol";
 
 /**
 * @title BBN Event Contract.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev  This NFT contract is deployed whenever a valid curator
 *       lists a new event.
 *       Every event is limited to one NFT contract and one Stake
@@ -246,9 +246,6 @@ contract BBNEvent is IBBNEvent, BBNEventERC721 {
     * @dev  Calculates the rewards based on the outcome and distributes 
     *       or redistributes the rewards to all stakers.
     *
-    * @notice   Due to the unspecified taxes for admin and curator,
-    *           this function is still not yet approved.
-    *
     * @param _outcome Outcome of event.
     */
     function calculateRewards(uint8 _outcome) private returns(bool) {
@@ -277,9 +274,6 @@ contract BBNEvent is IBBNEvent, BBNEventERC721 {
 
     /**
     * @dev  Distributes or redistributes the rewards to all stakers.
-    *
-    * @notice   Due to the unspecified taxes for admin and curator,
-    *           this function is still not yet approved.
     *
     * @param _outcome           Outcome of event.
     * @param _individualRewards Reward for each staker.

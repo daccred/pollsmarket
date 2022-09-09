@@ -3,7 +3,7 @@ pragma solidity ^0.8.14;
 
 /**
 * @title BBN Event Registry Contract Interface.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev Interface guiding the registry for events.
 */
 interface IBBNEventRegistry {

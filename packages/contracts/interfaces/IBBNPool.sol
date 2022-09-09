@@ -5,7 +5,7 @@ import {IBBNEventStructure} from "./IBBNEventStructure.sol";
 
 /**
 * @title BBN Event Pool Contract Interface.
-* @author Anthony (fps) https://github.com/0xfps.
+* @author Daccred.
 * @dev  Interface guiding the pool from where any event
 *       staking can be interacted with.
 */
