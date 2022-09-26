@@ -39,7 +39,7 @@ export function openGraph({ siteName, projectTitle, description, logo = `${SITE_
 const defaultMeta = {
   title: 'Polls Market',
   siteName: 'Make money by predicting outcomes on the bbnaija show',
-  description: 'Meta desc.: Make money by predicting outcomes on the bbnaija show. its easy!',
+  description: 'Earn your first NFT and make money by predicting outcomes on the bbnaija show. its easy!',
   url: `${SITE_URL}`,
   image: `${SITE_URL}/images/Webclip.png`,
   type: 'website',
